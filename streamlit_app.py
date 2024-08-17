@@ -12,18 +12,18 @@ flowise_html = """
             chatWindow: {
                 showTitle: true,
                 title: 'Toll Solutions and Case Study Email Writer',
-                titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
+                titleAvatarSrc: '',
                 showAgentMessages: true,
                 welcomeMessage: 'Hello! Who are we writing an email to today?',
                 errorMessage: 'This is a custom error message',
-                backgroundColor: "#f4f4f4",
+                backgroundColor: "#ffffff",
                 height: 700,
                 width: '100%',
                 fontSize: 16,
-                poweredByTextColor: "#ffffff",
+                poweredByTextColor: "#000000",
                 botMessage: {
-                    backgroundColor: "#e0e7ff",
-                    textColor: "#303235",
+                    backgroundColor: "#f4f4f4",
+                    textColor: "#000000",
                     showAvatar: true,
                     avatarSrc: "https://cdn-icons-png.flaticon.com/512/2021/2021646.png",
                 },
@@ -61,7 +61,7 @@ flowise_html = """
                 size: 48, // small | medium | large | number
                 dragAndDrop: true,
                 iconColor: "white",
-                customIconSrc: "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg",
+                customIconSrc: "",
             },
             tooltip: {
                 showTooltip: true,
@@ -74,10 +74,19 @@ flowise_html = """
     });
 </script>
 """
-# Optionally, add a title or description
-st.title("Toll Email Writer")
-st.write("Helps write emails for Account Managers with solutions and case studies.")
+
+# Embed the logo and title next to each other using a flexbox
+st.markdown(
+    """
+    <div style="display: flex; align-items: center; margin-bottom: 40px;">
+        <img src="https://cms.tollgroup.com/sites/default/files/2022-09/toll-logo.svg" alt="Toll Logo" style="height: 60px; margin-right: 20px;">
+        <div>
+            <p style="margin-top: 0;">Helps write emails for Account Managers with solutions and case studies.</p>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # Embed the full-page Flowise chatbot in Streamlit
 st.components.v1.html(flowise_html, height=800)
-
